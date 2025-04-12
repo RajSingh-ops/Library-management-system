@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .nav-buttons {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .nav-buttons a {
+            text-decoration: none;
+        }
+        .nav-buttons button {
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .nav-buttons button:hover {
+            background-color: #45a049;
+        }
+        .nav-buttons .logout {
+            background-color: #f44336;
+        }
+        .nav-buttons .logout:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Library Management System</h1>
+
+        <div class="nav-buttons">
+            <a href="{{ url_for('users') }}"><button>Users</button></a>
+            <a href="{{ url_for('librarians') }}"><button>Librarians</button></a>
+            <a href="{{ url_for('books') }}"><button>Books</button></a>
+            <a href="{{ url_for('borrows') }}"><button>Borrow</button></a>
+            <a href="{{ url_for('fines') }}"><button>Fines</button></a>
+            <a href="{{ url_for('reservations') }}"><button>Reservations</button></a>
+            <a href="{{ url_for('dashboard') }}"><button>Dashboard</button></a>
+            <a href="{{ url_for('logout') }}"><button class="logout">Logout</button></a>
+        </div>
+
+        <!-- Example college image in white background area -->
+        <div style="margin-top: 30px; padding: 20px; background: white;">
+            <img src="https://images.shiksha.com/mediadata/images/1579768230phpCE7dF1.jpeg" alt="College Image" style="width: 100%; max-width: 700px; display: block; margin: auto;">
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

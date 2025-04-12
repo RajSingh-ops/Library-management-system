@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Fine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Add Fine</h1>
+    <form method="POST">
+        <label for="borrow_id">Borrow:</label>
+        <select name="borrow_id" id="borrow_id" required>
+            {% for borrow in borrows %}
+                <option value="{{ borrow.Borrow_ID }}">
+                    {{ borrow.Borrow_ID }} - {{ borrow.UserName }} - {{ borrow.BookTitle }}
+                </option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" step="0.01" name="amount" id="amount" required><br><br>
+
+        <label for="status">Status:</label>
+        <select name="status" id="status">
+            <option value="Unpaid">Unpaid</option>
+            <option value="Paid">Paid</option>
+        </select><br><br>
+
+        <input type="submit" value="Add Fine">
+    </form>
+    <br>
+    <a href="{{ url_for('fines') }}">Back to Fines</a>
+</body>
+</html>
+

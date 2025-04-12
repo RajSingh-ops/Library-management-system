@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
+    <style>
+        .add-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .add-btn:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h2>Users List</h2>
+
+    <a href="{{ url_for('add_user') }}" class="add-btn">Add New User</a>
+
+    <table>
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.User_ID }}</td>
+            <td>{{ user.Name }}</td>
+            <td>{{ user.Email }}</td>
+            <td>{{ user.Phone }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+

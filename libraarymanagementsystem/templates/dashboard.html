@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .dashboard-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        .card {
+            display: inline-block;
+            width: 200px;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            box-shadow: 0 0 10px #ccc;
+        }
+        .card h2 {
+            font-size: 2em;
+            color: #333;
+        }
+        .card p {
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>📊 Dashboard</h1>
+        <div class="card">
+            <h2>{{ user_count }}</h2>
+            <p>Users</p>
+        </div>
+        <div class="card">
+            <h2>{{ librarian_count }}</h2>
+            <p>Librarians</p>
+        </div>
+        <div class="card">
+            <h2>{{ book_count }}</h2>
+            <p>Books</p>
+        </div>
+        <div class="card">
+            <h2>{{ borrow_count }}</h2>
+            <p>Borrows</p>
+        </div>
+        <div class="card">
+            <h2>{{ reservation_count }}</h2>
+            <p>Reservations</p>
+        </div>
+        <div class="card">
+            <h2>{{ fine_count }}</h2>
+            <p>Fines</p>
+        </div>
+    </div>
+</body>
+</html>
+

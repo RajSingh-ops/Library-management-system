@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Reservation</title>
+</head>
+<body>
+    <h1>Add Reservation</h1>
+    <form method="POST">
+        <label>User:</label>
+        <select name="user_id">
+            {% for user in users %}
+            <option value="{{ user.User_ID }}">{{ user.Name }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Book:</label>
+        <select name="book_id">
+            {% for book in books %}
+            <option value="{{ book.Book_ID }}">{{ book.Title }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Reservation Date:</label>
+        <input type="date" name="reservation_date" required><br><br>
+
+        <input type="submit" value="Reserve Book">
+    </form>
+</body>
+</html>

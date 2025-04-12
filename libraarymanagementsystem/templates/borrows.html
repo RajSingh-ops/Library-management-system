@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrow Records</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Borrow Records</h1>
+        <a class="btn" href="{{ url_for('add_borrow') }}">Add Borrow</a>
+        <a class="btn" href="{{ url_for('home') }}">Home</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Book</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                    <th>Return Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for borrow in borrows %}
+                <tr>
+                    <td>{{ borrow.Borrow_ID }}</td>
+                    <td>{{ borrow.UserName }}</td>
+                    <td>{{ borrow.BookTitle }}</td>
+                    <td>{{ borrow.Issue_Date }}</td>
+                    <td>{{ borrow.Due_Date }}</td>
+                    <td>{{ borrow.Return_Date or 'N/A' }}</td>
+                    <td>
+                        <a class="btn-danger" href="{{ url_for('delete_borrow', borrow_id=borrow.Borrow_ID) }}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

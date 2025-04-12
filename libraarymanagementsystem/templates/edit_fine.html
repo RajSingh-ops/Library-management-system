@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Fine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Edit Fine</h1>
+    <form method="POST">
+        <label for="borrow_id">Borrow:</label>
+        <select name="borrow_id" id="borrow_id" required>
+            {% for borrow in borrows %}
+                <option value="{{ borrow.Borrow_ID }}" {% if borrow.Borrow_ID == fine.Borrow_ID %}selected{% endif %}>
+                    {{ borrow.Borrow_ID }} - {{ borrow.UserName }} - {{ borrow.BookTitle }}
+                </option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" step="0.01" name="amount" id="amount" value="{{ fine.Amount }}" required><br><br>
+
+        <label for="status">Status:</label>
+        <select name="status" id="status">
+            <option value="Unpaid" {% if fine.Status == 'Unpaid' %}selected{% endif %}>Unpaid</option>
+            <option value="Paid" {% if fine.Status == 'Paid' %}selected{% endif %}>Paid</option>
+        </select><br><br>
+
+        <input type="submit" value="Update Fine">
+    </form>
+    <br>
+    <a href="{{ url_for('fines') }}">Back to Fines</a>
+</body>
+</html>

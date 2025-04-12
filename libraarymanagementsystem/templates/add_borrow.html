@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Borrow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Borrow Entry</h1>
+        <form method="POST">
+            <label>User:</label>
+            <select name="user_id" required>
+                {% for user in users %}
+                <option value="{{ user.User_ID }}">{{ user.Name }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Book:</label>
+            <select name="book_id" required>
+                {% for book in books %}
+                <option value="{{ book.Book_ID }}">{{ book.Title }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Issue Date:</label>
+            <input type="date" name="issue_date" required>
+
+            <label>Due Date:</label>
+            <input type="date" name="due_date" required>
+
+            <label>Return Date:</label>
+            <input type="date" name="return_date">
+
+            <input type="submit" value="Add Borrow">
+        </form>
+        <a class="btn" href="{{ url_for('borrows') }}">Back</a>
+    </div>
+</body>
+</html>
